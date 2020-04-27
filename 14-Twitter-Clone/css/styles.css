@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  position: relative;
+  min-height: 100%
+}
+
+body {
+  background: linear-gradient(to bottom, #f0f0ff, #c8c8ff);
+  color: #222;
+  font-family: 'Cabin', sans-serif;
+  margin-bottom: 40px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'BioRhyme', serif;
+} 
+
+.footer {
+  background: #ddd;
+  bottom: 0;
+  color: #444;
+  font-size: 86%;
+  height: 40px;
+  line-height: 40px;
+  position: absolute;
+  width: 100%;
+}
+
+.tweet {
+  background: #ddd;
+  border: 1px solid #aaa;
+  border-radius: 0.25em;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+.tweet__content {
+  white-space: pre-wrap;
+}
+
+.tweet__email, .tweet__time {
+  font-size: 85%;
+  color: #555;
+}
+
+.toggle-follow {
+  width: 5.5em;
+}

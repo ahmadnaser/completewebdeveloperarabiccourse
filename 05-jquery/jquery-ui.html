@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery UI</title>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/blitzer/jquery-ui.css">
+</head>
+<style>
+body {
+  font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+}
+.box {
+  height: 400px;
+  width: 500px;
+  float: left;
+  border: 2px solid #777;
+  background-color: #eee;
+  padding: 10px;
+}
+
+.target {
+  width: 180px;
+  height: 180px;
+  float: left;
+  margin: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.square {
+  border-radius: 5px;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.red {
+  background-color: #a00;
+}
+
+.green {
+  background-color: #0a0;
+}
+
+.orange {
+  background-color: #ea0;
+}
+
+.sortable {
+  list-style-type: none;
+}
+</style>
+<body>
+  <h1>jQuery UI</h1>
+
+<div class="box">
+  <div class="target red square">Resize &searr;</div>
+  <div class="target green circle">Drag in here &rarr;</div>
+  <div class="target orange square">Drag &darr;</div>
+</div>
+
+<div class="box destination">
+  <p>Drop here</p>
+</div>
+
+<div class="box accordion">
+  <h3>Section 1</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat ullam culpa consequatur
+    facilis aut dolor, magni illum nam numquam reiciendis accusamus sint nostrum esse nobis.
+    Animi dolorum adipisci eos iusto.</p>
+  <h3>Section 2</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat ullam culpa consequatur
+    facilis aut dolor, magni illum nam numquam reiciendis accusamus sint nostrum esse nobis.
+    Animi dolorum adipisci eos iusto.</p>
+  <h3>Section 3</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat ullam culpa consequatur
+    facilis aut dolor, magni illum nam numquam reiciendis accusamus sint nostrum esse nobis.
+    Animi dolorum adipisci eos iusto.</p>
+  <h3>Section 4</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat ullam culpa consequatur
+    facilis aut dolor, magni illum nam numquam reiciendis accusamus sint nostrum esse nobis.
+    Animi dolorum adipisci eos iusto.</p>
+</div>
+
+<div class="box list">
+  <ul class="sortable">
+    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
+    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
+  </ul>
+</div>
+<script>
+$(function() {
+  $(".circle").click(function () {
+    console.log("Circle");
+  });
+
+  $(".square").click(function () {
+    console.log("Square");
+  })
+
+  $(".red").resizable({ containment: 'parent', grid: 20});
+  $(".circle").draggable({ axis: 'x', containment: 'parent' });
+  $(".orange").draggable();
+
+  $(".destination").droppable({
+    drop: function(event, ui) {
+      $(this).
+        addClass('ui-state-highlight').
+        find('p').html('Dropped');
+    }
+  });
+
+  $('.accordion').accordion();
+
+  $(".sortable").sortable();
+});
+</script>
+</body>
+</html>
